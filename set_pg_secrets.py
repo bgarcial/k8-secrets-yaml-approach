@@ -44,7 +44,7 @@ kdb = PostgresqlSecrets()
 # print("it's the host", secrets.PG_HOST)
 # print("it's the DATABASE", secrets.PG_DATABASE)
 
-kdb.set_secrets("./pg-secrets.yaml",
+kdb.set_secrets("./kong_pg_secrets.yaml",
             pg_username=secrets.PG_USERNAME,
             pg_password=secrets.PG_PASSWORD,
             pg_host=secrets.PG_HOST,
