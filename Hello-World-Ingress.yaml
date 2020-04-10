@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    # add an annotation indicating the issuer to use.
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    kubernetes.io/ingress.class: kong
+  name: echo-site-ingress
+  namespace: hello-world
+spec:
+  rules:
+  - host: hello-world.bgarcial.me
+    http:
+      paths:
+      - backend:
+          serviceName: echo
+          servicePort: 80
+        path: /
+  tls: # < placing a host in the TLS config will indicate a cert should be created
+  - hosts:
+    - hello-world.bgarcial.me
+    secretName: letsencrypt-staging
