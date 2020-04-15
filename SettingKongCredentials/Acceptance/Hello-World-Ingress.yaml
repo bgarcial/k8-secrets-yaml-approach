@@ -5,6 +5,7 @@ metadata:
     # add an annotation indicating the issuer to use.
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: kong
+    plugins.konghq.com: helloworld-customer-acceptance-basic-auth, hello-world-customer-acceptance-acl
   name: echo-site-ingress
   namespace: hello-world
 spec:
