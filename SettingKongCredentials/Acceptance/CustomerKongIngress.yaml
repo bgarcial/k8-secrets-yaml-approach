@@ -1,0 +1,28 @@
+# This KongIngress resource should be created first before to
+# create kong basic-auth KongPlugin and Feefo Ingress resource.
+
+apiVersion: configuration.konghq.com/v1
+kind: KongIngress
+metadata:
+  name: echo-site-ingress
+  namespace: hello-world
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+  labels:
+    app.kubernetes.io/name: api-kongingress
+    app.kubernetes.io/instance: api-acceptance
+    app.kubernetes.io/managed-by: kong-acceptance
+    environment: acceptance
+    app.kubernetes.io/component: kongingress
+    app.kubernetes.io/part-of: api
+proxy:
+  protocols:
+    - http
+    - https
+#  path: /
+route:
+  methods:
+    - POST
+    - GET
+  strip_path: true
+  preserve_host: true
