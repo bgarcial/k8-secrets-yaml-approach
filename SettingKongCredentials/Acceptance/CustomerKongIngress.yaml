@@ -1,5 +1,5 @@
 # This KongIngress resource should be created first before to
-# create kong basic-auth KongPlugin and Feefo Ingress resource.
+# create kong basic-auth KongPlugin and Customer Ingress resource.
 
 apiVersion: configuration.konghq.com/v1
 kind: KongIngress
