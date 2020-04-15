@@ -1,0 +1,44 @@
+# Defining the basic-auth plugin to Hello world service
+
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: helloworld-customer-acceptance-basic-auth
+  namespace: hello-world
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+  labels:
+    app.kubernetes.io/name: api-kongplugin
+    app.kubernetes.io/instance: api-acceptance
+    app.kubernetes.io/managed-by: kong-acceptance
+    environment: acceptance
+    app.kubernetes.io/component: kongplugin
+    app.kubernetes.io/part-of: api
+disabled: false
+config:
+  hide_credentials: true
+plugin: basic-auth
+
+---
+# Defining the ACL plugin to authorize users to access to Hello World service
+
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: hello-world-customer-acceptance-acl
+  namespace: hello-world
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+  labels:
+    app.kubernetes.io/name: api-kongplugin
+    app.kubernetes.io/instance: api-acceptance
+    app.kubernetes.io/managed-by: kong-acceptance
+    environment: acceptance
+    app.kubernetes.io/component: kongplugin
+    app.kubernetes.io/part-of: api
+disabled: false
+config:
+  hide_groups_header: true
+  # users groups authorized
+  whitelist: ["contributors","owners"]
+plugin: acl
