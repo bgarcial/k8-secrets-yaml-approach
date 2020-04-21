@@ -268,7 +268,11 @@ Let's suppose we have this small architecture deployment:
 - Hashicorp HTTP echo Hello World Application Service
 
 
-##INCLUDE ARCHITECTURE DIAGRAM
+## ARCHITECTURE DEPLOYMENT
+
+Let's say we have this small deployment to implement:
+
+![Architecture Deployment](https://cldup.com/2crNXao3wZ.jpeg "Architecture Deployment")
 
 ### 4.1. Creating Infrastructure resources.
 
@@ -947,7 +951,3 @@ Having said that, if we go to https://hello-world.bgarcial.me/ we can see now we
 ![TLS encryption](https://cldup.com/1UnloaVv72.png "TLS encryption")
 
 ---
-
-
-
-
