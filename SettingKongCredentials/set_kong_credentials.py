@@ -28,7 +28,7 @@ class KongCredentials:
             # I want to retrieve the documents in the YAML file
             # and I want to order it with a key lambda.
             # It means I want to order it by a parameter that the document has,
-            # it is the 'kind' and 'type=basic-auth' parameters
+            # it is the 'kind=KongCredential' and 'type=basic-auth' parameters
             # And if that evaluation is true, replace the content of
             # doc['config']['password'] to the passwords that we want to set in the
             # repository
