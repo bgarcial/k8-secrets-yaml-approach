@@ -25,6 +25,13 @@ class KongCredentials:
             docs = list(yaml.safe_load_all(f))
         # We are retrieving all KongCredentials/basic-auth resources that exist in the YAML file
         for doc in filter(lambda item: item['kind'] == "KongCredential" and item['type'] == "basic-auth", docs):
+            # I want to retrieve the documents in the YAML file
+            # and I want to order it with a key lambda.
+            # It means I want to order it by a parameter that the document has,
+            # it is the 'kind' and 'type=basic-auth' parameters
+            # And if that evaluation is true, replace the content of
+            # doc['config']['password'] to the passwords that we want to set in the
+            # repository
             print("Changing " + doc['config']['password'])
             # We are placing in the specific password atribute and set/replace
             # the password
